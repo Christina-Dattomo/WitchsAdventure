@@ -24,7 +24,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	public float sprintFOV = 100f;
 	
-	private PlayerControl playerControl;
+//	private PlayerControl playerControl;
 	private float angleH = 0;
 	private float angleV = 0;
 	private Transform cam;
@@ -43,7 +43,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	void Awake()
 	{
 		cam = transform;
-		playerControl = player.GetComponent<PlayerControl> ();
+//		playerControl = player.GetComponent<PlayerControl> ();
 
 		relCameraPos = transform.position - player.position;
 		relCameraPosMag = relCameraPos.magnitude - 0.5f;
@@ -60,39 +60,39 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed * Time.deltaTime;
 
 		// fly
-		if(playerControl.IsFlying())
-		{
-			angleV = Mathf.Clamp(angleV, minVerticalAngle, flyMaxVerticalAngle);
-		}
-		else
-		{
+//		if(playerControl.IsFlying())
+//		{
+//			angleV = Mathf.Clamp(angleV, minVerticalAngle, flyMaxVerticalAngle);
+//		}
+//		else
+//		{
 			angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
-		}
+//		}
 
 
 		Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
 		Quaternion camYRotation = Quaternion.Euler(0, angleH, 0);
 		cam.rotation = aimRotation;
 
-		if(playerControl.IsAiming())
-		{
-			targetPivotOffset = aimPivotOffset;
-			targetCamOffset = aimCamOffset;
-		}
-		else
-		{
+//		if(playerControl.IsAiming())
+//		{
+//			targetPivotOffset = aimPivotOffset;
+//			targetCamOffset = aimCamOffset;
+//		}
+//		else
+//		{
 			targetPivotOffset = pivotOffset;
 			targetCamOffset = camOffset;
-		}
+//		}
 
-		if(playerControl.isSprinting())
-		{
-			targetFOV = sprintFOV;
-		}
-		else
-		{
+//		if(playerControl.isSprinting())
+//		{
+//			targetFOV = sprintFOV;
+//		}
+//		else
+//		{
 			targetFOV = defaultFOV;
-		}
+//		}
 		cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp (cam.GetComponent<Camera>().fieldOfView, targetFOV,  Time.deltaTime);
 
 		// Test for collision
@@ -109,10 +109,10 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		}
 
 		// fly
-		if(playerControl.IsFlying())
-		{
-			targetCamOffset.y = 0;
-		}
+		//if(playerControl.IsFlying())
+		//{
+		//	targetCamOffset.y = 0;
+		//}
 
 		smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
 		smoothCamOffset = Vector3.Lerp(smoothCamOffset, targetCamOffset, smooth * Time.deltaTime);
@@ -160,12 +160,12 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	}
 
 	// Crosshair
-	void OnGUI () 
+/*	void OnGUI () 
 	{
 		float mag = Mathf.Abs ((aimPivotOffset - smoothPivotOffset).magnitude);
 		if (playerControl.IsAiming() &&  mag < 0.05f)
 			GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width*0.5f), 
 			                         Screen.height/2-(crosshair.height*0.5f), 
 			                         crosshair.width, crosshair.height), crosshair);
-	}
+	}*/
 }
