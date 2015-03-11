@@ -138,13 +138,14 @@
      <None Include="Assets\Assets\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
-     <None Include="Assets\Mixamo\Fuse\ReadMe.txt" />
+     <None Include="Assets\Assets\Mixamo\Fuse\ReadMe.txt" />
+     <None Include="Assets\readme.txt" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
      <None Include="Assets\Assets\MedievalLevelKit\Materials\Vegetation_D.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>D:/User/Documents/GitHub/Witch'sAdventure/trunk/Witch'sAdventure/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>D:/User/Documents/GitHub/Witch's Adventure/trunk/Witch'sAdventure/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
