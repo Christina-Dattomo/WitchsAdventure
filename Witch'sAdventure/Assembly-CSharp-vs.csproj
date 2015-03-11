@@ -153,6 +153,7 @@
      <Compile Include="Assets\BIG_Environment_Pack\Atmo_System\AtmoXfade.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
+     <Compile Include="Assets\Scripts\LevelScripts\LevelSwitch.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
      <Compile Include="Assets\Scripts\Music.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerControl.cs" />
