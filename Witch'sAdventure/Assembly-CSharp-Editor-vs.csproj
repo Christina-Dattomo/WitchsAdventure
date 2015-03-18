@@ -105,7 +105,7 @@
      <None Include="Assets\Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Assets\Terrain\!ATS Colormap ULTRA Terrain Shader 2.0\Shaders\ColorMapUltra_MeshTerrainBlend_U4_v2.02.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
-     <None Include="Assets\Assets\3DForge\Fantasy_Interiors\Villages_&amp;_Towns\Documents\Castles &amp; Cathedrals User Guide.txt" />
+     <None Include="Assets\3DForge\Fantasy_Interiors\Villages_&amp;_Towns\Documents\Castles &amp; Cathedrals User Guide.txt" />
      <None Include="Assets\Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
@@ -159,7 +159,7 @@
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/Christina/Documents/GitHub/WitchsAdventure/trunk/Witch'sAdventure/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>D:/User/Documents/GitHub/Witch's Adventure/trunk/Witch'sAdventure/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

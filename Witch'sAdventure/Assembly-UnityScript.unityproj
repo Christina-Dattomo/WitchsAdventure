@@ -89,7 +89,7 @@
      <None Include="Assets\Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Assets\Terrain\!ATS Colormap ULTRA Terrain Shader 2.0\Shaders\ColorMapUltra_MeshTerrainBlend_U4_v2.02.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
-     <None Include="Assets\Assets\3DForge\Fantasy_Interiors\Villages_&amp;_Towns\Documents\Castles &amp; Cathedrals User Guide.txt" />
+     <None Include="Assets\3DForge\Fantasy_Interiors\Villages_&amp;_Towns\Documents\Castles &amp; Cathedrals User Guide.txt" />
      <None Include="Assets\Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
