@@ -13,6 +13,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	public Vector3 aimPivotOffset = new Vector3(0.0f, 1.7f,  -0.3f);
 	public Vector3 aimCamOffset   = new Vector3(0.8f, 0.0f, -1.0f);
+	
 
 	public float horizontalAimingSpeed = 400f;
 	public float verticalAimingSpeed = 400f;
@@ -83,6 +84,7 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 //		{
 			targetPivotOffset = pivotOffset;
 			targetCamOffset = camOffset;
+
 //		}
 
 //		if(playerControl.isSprinting())
@@ -114,10 +116,14 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 		//	targetCamOffset.y = 0;
 		//}
 
-		smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
-		smoothCamOffset = Vector3.Lerp(smoothCamOffset, targetCamOffset, smooth * Time.deltaTime);
 
-		cam.position =  player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset;
+
+		smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
+		smoothCamOffset = Vector3.Lerp (smoothCamOffset, targetCamOffset, smooth * Time.deltaTime);
+
+		cam.position = player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset;
+
+	
 
 	}
 
@@ -160,12 +166,13 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	}
 
 	// Crosshair
-/*	void OnGUI () 
-	{
+	//void OnGUI () 
+/*	{
 		float mag = Mathf.Abs ((aimPivotOffset - smoothPivotOffset).magnitude);
 		if (playerControl.IsAiming() &&  mag < 0.05f)
 			GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width*0.5f), 
 			                         Screen.height/2-(crosshair.height*0.5f), 
 			                         crosshair.width, crosshair.height), crosshair);
 	}*/
+
 }
