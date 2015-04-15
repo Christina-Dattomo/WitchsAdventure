@@ -151,6 +151,11 @@
      <Compile Include="Assets\Assets\Terrain\!ATS Colormap ULTRA Terrain Shader 2.0\Scripts\CustomTerrainScriptColorMapUltraU4.cs" />
      <Compile Include="Assets\Assets\Terrain\!ATS Colormap ULTRA Terrain Shader 2.0\Scripts\MeshTerrainBlendingTool.cs" />
      <Compile Include="Assets\BIG_Environment_Pack\Atmo_System\AtmoXfade.cs" />
+     <Compile Include="Assets\RPG Minimap\Scripts\Minimap.cs" />
+     <Compile Include="Assets\RPG Minimap\Scripts\MinimapElement.cs" />
+     <Compile Include="Assets\RPG Minimap\Scripts\ZoneChanger.cs" />
+     <Compile Include="Assets\RPG Minimap\Scripts\uGUIMinimap.cs" />
+     <Compile Include="Assets\RPG Minimap\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\LevelSwitch.cs" />
@@ -158,6 +163,26 @@
      <Compile Include="Assets\Scripts\Music.cs" />
      <Compile Include="Assets\Scripts\MyCharacterController.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerControl.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_3DPreview.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_BuildingSystem.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_BuildingSystemUI.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_BuildingSystemUIEditor.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_CustomActivation.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_DoorPanel.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_DoorSystem.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_DoorSystemEditor.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_Item.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_ItemEditor.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_ItemSpawner.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_Key.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_Lootable.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_LootableEditor.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_PlayerScript.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_PreviewWindow.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UI_ShopSystem.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UInventory.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\CSharp\UInventoryEditor.cs" />
+     <Compile Include="Assets\Ultimate Inventory\Scripts\HungerSystemExample.cs" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
@@ -212,11 +237,13 @@
      <None Include="Assets\Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
+     <None Include="Assets\RPG Minimap\Shaders\Depth.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
+     <None Include="Assets\RPG Minimap\_Readme.txt" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
@@ -256,6 +283,12 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{1375C7CB-8365-1632-3C04-70987B80297B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{C0ACF0FF-B2AF-A78F-0FC7-E114E230A8AF}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
