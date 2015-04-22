@@ -37,9 +37,9 @@ public class UI_Item : MonoBehaviour
         Legs = 3,
         Shoes = 4
     }
-    /*
-     * Code no longer needed after version 4.x
-     * void OnTriggerEnter(Collider col)
+    
+   //  * Code no longer needed after version 4.x
+    void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
@@ -53,7 +53,7 @@ public class UI_Item : MonoBehaviour
             displayMessage = false;
         }
     }
-    */
+
     void OnGUI()
     {
         if (displayMessage && gameObject == go)
@@ -65,7 +65,7 @@ public class UI_Item : MonoBehaviour
             }
             else
             {
-                GUI.Label(new Rect(10, 10, 200, 30), "Press " + pickUpItem.ToString() + " To Pick " + itemName);
+                GUI.Label(new Rect(10, 10, 200, 30), "Press " + pickUpItem.ToString() + " To Pick Up " + itemName);
             }
         }
     }
