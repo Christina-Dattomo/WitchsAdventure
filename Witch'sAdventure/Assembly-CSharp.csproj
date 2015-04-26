@@ -156,6 +156,15 @@
      <Compile Include="Assets\RPG Minimap\Scripts\ZoneChanger.cs" />
      <Compile Include="Assets\RPG Minimap\Scripts\uGUIMinimap.cs" />
      <Compile Include="Assets\RPG Minimap\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\GUI\CreditsMenuManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\InGameUIManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\InventoryMenuManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\JournalMenuManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\LevelSuccessManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\LoadingScreenManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\PauseMenuManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\StartMenuManager.cs" />
+     <Compile Include="Assets\Scripts\GUI\UIManager.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\LevelSwitch.cs" />
