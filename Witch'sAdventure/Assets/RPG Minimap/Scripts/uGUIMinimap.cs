@@ -54,6 +54,9 @@ public class uGUIMinimap : MonoBehaviour {
 	}
 
 	void Update() {
+		if (Input.GetKeyDown (KeyCode.R))
+			Recalculate ();
+
 		//Follow the target
 		minimap.position = new Vector3(target.position.x , 700, target.position.z);
 	}
@@ -73,7 +76,7 @@ public class uGUIMinimap : MonoBehaviour {
 		playerCircle.localScale = new Vector3(minimapCamera.orthographicSize / 1.5f, minimapCamera.orthographicSize / 1.5f, minimapCamera.orthographicSize / 1.5f);
 	
 		//Calculate the position of the minimap frame
-		frame.rectTransform.position = new Vector3(minimapCamera.rect.x * canvasScaler.GetComponent<RectTransform>().sizeDelta.x,minimapCamera.rect.y * canvasScaler.GetComponent<RectTransform>().sizeDelta.y);
+		frame.rectTransform.position = new Vector3(minimapCamera.rect.x * Screen.width, minimapCamera.rect.y * Screen.height);
 		
 		//Calculate the size of the minimap frame
 		frame.rectTransform.sizeDelta = new Vector3(canvasScaler.GetComponent<RectTransform>().sizeDelta.x * minimapCamera.rect.width, canvasScaler.GetComponent<RectTransform>().sizeDelta.y * minimapCamera.rect.height);
