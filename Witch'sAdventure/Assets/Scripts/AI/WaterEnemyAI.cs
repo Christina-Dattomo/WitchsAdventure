@@ -11,7 +11,7 @@ public class WaterEnemyAI : MonoBehaviour {
 	public enum WaterAIState {Attracted, Avoiding};
 	public WaterAIState myState;
 	public float movementSpeed;
-	public float waitTime;
+	//public float waitTime;
 	public float wanderDistance;
 	public bool inBoundaryZone = false;
 	public bool needDestination = true;
@@ -30,10 +30,12 @@ public class WaterEnemyAI : MonoBehaviour {
 	void Update () {
 		try{
 			salt = GameObject.FindGameObjectWithTag("Salt");
+			salt.gameObject.GetInstanceID();
 			myState = WaterAIState.Attracted;
 		}
 		catch
 		{
+			//Debug.Log ("boop");
 			myState = WaterAIState.Avoiding;
 		}
 

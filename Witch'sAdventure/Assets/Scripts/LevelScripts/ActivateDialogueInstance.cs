@@ -2,15 +2,28 @@
 using System.Collections;
 
 public class ActivateDialogueInstance : MonoBehaviour {
+	bool canInitiateDialogue = false;
+	int currentNPC = 0;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void Update()
+	{
+
+		if (canInitiateDialogue && Input.GetKeyDown ("enter")) 
+		{
+			switch (currentNPC)
+			{
+			case 1:
+				//initiate NPC1 dialogue
+				break;
+			case 2:
+				//initiate NPC2 dialogue
+				break;
+			case 0:
+				//do nothing
+				break;
+			}
+		}
+
 	}
 
 	void OnTriggerEnter(Collider NPC)
@@ -18,6 +31,8 @@ public class ActivateDialogueInstance : MonoBehaviour {
 		switch (NPC.tag) 
 		{
 		case "Woman1Dialogue":
+			canInitiateDialogue = true;
+			currentNPC = 1;
 			break;
 		}
 	}

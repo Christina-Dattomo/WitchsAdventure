@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ThirdPersonOrbitCam : MonoBehaviour 
 {
+	public enum CameraState { ThirdPersonOrbit, ThirdPersonDialog }
+	public CameraState currentCameraState = CameraState.ThirdPersonOrbit;
 	public Transform player;
 	public Texture2D crosshair;
 	
@@ -43,60 +45,82 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 
 	void Awake()
 	{
-		cam = transform;
-//		playerControl = player.GetComponent<PlayerControl> ();
+		SetCameraState (currentCameraState);
+	}
+	public void SetCameraState(CameraState newCameraState)
+	{
+		switch (newCameraState) 
+		{
+		case CameraState.ThirdPersonOrbit:
+			cam = transform;
+			//		playerControl = player.GetComponent<PlayerControl> ();
+			relCameraPos = transform.position - player.position;
+			relCameraPosMag = relCameraPos.magnitude - 0.5f;
+			
+			smoothPivotOffset = pivotOffset;
+			smoothCamOffset = camOffset;
+			
+			defaultFOV = cam.GetComponent<Camera>().fieldOfView;
+			break;
+		case CameraState.ThirdPersonDialog:
 
-		relCameraPos = transform.position - player.position;
-		relCameraPosMag = relCameraPos.magnitude - 0.5f;
-
-		smoothPivotOffset = pivotOffset;
-		smoothCamOffset = camOffset;
-
-		defaultFOV = cam.GetComponent<Camera>().fieldOfView;
+			break;
+		}
+		currentCameraState = newCameraState;
+	}
+	void LateUpdate()
+	{
+		switch (currentCameraState) 
+		{
+		case CameraState.ThirdPersonOrbit:
+			ThirdPersonOrbitState();
+			break;
+		case CameraState.ThirdPersonDialog:
+			break;
+		}
 	}
 
-	void LateUpdate()
+	void ThirdPersonOrbitState()
 	{
 		angleH += Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1) * horizontalAimingSpeed * Time.deltaTime;
 		angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed * Time.deltaTime;
-
+		
 		// fly
-//		if(playerControl.IsFlying())
-//		{
-//			angleV = Mathf.Clamp(angleV, minVerticalAngle, flyMaxVerticalAngle);
-//		}
-//		else
-//		{
-			angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
-//		}
-
+		//		if(playerControl.IsFlying())
+		//		{
+		//			angleV = Mathf.Clamp(angleV, minVerticalAngle, flyMaxVerticalAngle);
+		//		}
+		//		else
+		//		{
+		angleV = Mathf.Clamp(angleV, minVerticalAngle, maxVerticalAngle);
+		//		}
 
 		Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
 		Quaternion camYRotation = Quaternion.Euler(0, angleH, 0);
 		cam.rotation = aimRotation;
-
-//		if(playerControl.IsAiming())
-//		{
-//			targetPivotOffset = aimPivotOffset;
-//			targetCamOffset = aimCamOffset;
-//		}
-//		else
-//		{
-			targetPivotOffset = pivotOffset;
-			targetCamOffset = camOffset;
-
-//		}
-
-//		if(playerControl.isSprinting())
-//		{
-//			targetFOV = sprintFOV;
-//		}
-//		else
-//		{
-			targetFOV = defaultFOV;
-//		}
+		
+		//		if(playerControl.IsAiming())
+		//		{
+		//			targetPivotOffset = aimPivotOffset;
+		//			targetCamOffset = aimCamOffset;
+		//		}
+		//		else
+		//		{
+		targetPivotOffset = pivotOffset;
+		targetCamOffset = camOffset;
+		
+		//		}
+		
+		//		if(playerControl.isSprinting())
+		//		{
+		//			targetFOV = sprintFOV;
+		//		}
+		//		else
+		//		{
+		targetFOV = defaultFOV;
+		//		}
 		cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp (cam.GetComponent<Camera>().fieldOfView, targetFOV,  Time.deltaTime);
-
+		
 		// Test for collision
 		Vector3 baseTempPosition = player.position + camYRotation * targetPivotOffset;
 		Vector3 tempOffset = targetCamOffset;
@@ -109,24 +133,18 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 				break;
 			}
 		}
-
+		
 		// fly
 		//if(playerControl.IsFlying())
 		//{
 		//	targetCamOffset.y = 0;
 		//}
 
-
-
 		smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
 		smoothCamOffset = Vector3.Lerp (smoothCamOffset, targetCamOffset, smooth * Time.deltaTime);
-
+		
 		cam.position = player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset;
-
-	
-
 	}
-
 	// concave objects doesn't detect hit from outside, so cast in both directions
 	bool DoubleViewingPosCheck(Vector3 checkPos)
 	{
