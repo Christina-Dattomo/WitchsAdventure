@@ -186,7 +186,9 @@
      <Compile Include="Assets\Scripts\GUI\PauseMenuManager.cs" />
      <Compile Include="Assets\Scripts\GUI\StartMenuManager.cs" />
      <Compile Include="Assets\Scripts\GUI\UIManager.cs" />
+     <Compile Include="Assets\Scripts\LevelScripts\ActivateDialogueInstance.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\ControlsTutorial.cs" />
+     <Compile Include="Assets\Scripts\LevelScripts\Dialogue.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\HintManagement.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\LevelSwitch.cs" />
      <Compile Include="Assets\Scripts\LevelScripts\Music.cs" />
