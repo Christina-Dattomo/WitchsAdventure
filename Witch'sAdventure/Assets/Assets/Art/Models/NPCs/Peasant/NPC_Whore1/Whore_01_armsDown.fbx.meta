@@ -1,0 +1,103 @@
+fileFormatVersion: 2
+guid: 45221f5799669d444b1c4a5b016a26ce
+timeCreated: 1431533457
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: NPC_Whore1:Body
+    100002: NPC_Whore1:Bottoms
+    100004: NPC_Whore1:Eyelashes
+    100006: NPC_Whore1:Eyes
+    100008: NPC_Whore1:Hair
+    100010: NPC_Whore1:Shoes
+    100012: NPC_Whore1:Tops
+    100014: //RootNode
+    400000: NPC_Whore1:Body
+    400002: NPC_Whore1:Bottoms
+    400004: NPC_Whore1:Eyelashes
+    400006: NPC_Whore1:Eyes
+    400008: NPC_Whore1:Hair
+    400010: NPC_Whore1:Shoes
+    400012: NPC_Whore1:Tops
+    400014: //RootNode
+    2300000: NPC_Whore1:Body
+    2300002: NPC_Whore1:Bottoms
+    2300004: NPC_Whore1:Eyelashes
+    2300006: NPC_Whore1:Eyes
+    2300008: NPC_Whore1:Hair
+    2300010: NPC_Whore1:Shoes
+    2300012: NPC_Whore1:Tops
+    3300000: NPC_Whore1:Body
+    3300002: NPC_Whore1:Bottoms
+    3300004: NPC_Whore1:Eyelashes
+    3300006: NPC_Whore1:Eyes
+    3300008: NPC_Whore1:Hair
+    3300010: NPC_Whore1:Shoes
+    3300012: NPC_Whore1:Tops
+    4300000: NPC_Whore1:Body
+    4300002: NPC_Whore1:Eyes
+    4300004: NPC_Whore1:Eyelashes
+    4300006: NPC_Whore1:Hair
+    4300008: NPC_Whore1:Bottoms
+    4300010: NPC_Whore1:Tops
+    4300012: NPC_Whore1:Shoes
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
