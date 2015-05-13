@@ -195,6 +195,9 @@
      <Compile Include="Assets\Scripts\LevelScripts\ThirdPersonOrbitCam.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\MyCharacterController.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\RitualCircleScript.cs" />
+     <Compile Include="Assets\Scripts\RitualDropScript.cs" />
+     <Compile Include="Assets\Scripts\RitualScript.cs" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />

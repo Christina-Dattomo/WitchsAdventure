@@ -22,7 +22,7 @@ public class WaterEnemyAI : MonoBehaviour {
 	void Start () {
 
 		RitualCircle = GameObject.FindGameObjectWithTag("Ritual Circle");
-		RitualBoundaryZone = GameObject.FindGameObjectWithTag("Outer Ritual Area");
+		RitualBoundaryZone = GameObject.FindGameObjectWithTag("RitualTrigger");
 	
 	}
 	
