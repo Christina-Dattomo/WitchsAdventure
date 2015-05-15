@@ -7,35 +7,36 @@ public class WaterEnemyAI : MonoBehaviour {
 	//public Vector3 CircleWorldPositionCenter;
 	//public int CircleRadius;
 	private GameObject RitualCircle;
-	private GameObject RitualBoundaryZone;
+	private GameObject Boundary;
 	public enum WaterAIState {Attracted, Avoiding};
 	public WaterAIState myState;
-	public float movementSpeed;
-	//public float waitTime;
+	public float movementSpeed, rotationSpeed;
+	public float waitTime;
 	public float wanderDistance;
 	public bool inBoundaryZone = false;
 	public bool needDestination = true;
 	public bool inRitualCircle = false;
 	private Vector3 destination;
+	private Quaternion endRotationQuat;
+	private Vector3 endRotationEuler;
+	public float rotationCatch = 11;
 
 	// Use this for initialization
 	void Start () {
 
-		RitualCircle = GameObject.FindGameObjectWithTag("Ritual Circle");
-		RitualBoundaryZone = GameObject.FindGameObjectWithTag("RitualTrigger");
+		RitualCircle = GameObject.FindGameObjectWithTag("RitualCircle");
+		Boundary = GameObject.FindGameObjectWithTag("Boundary");
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		try{
+		if(GameObject.FindGameObjectWithTag("Salt")!= null){
 			salt = GameObject.FindGameObjectWithTag("Salt");
-			salt.gameObject.GetInstanceID();
 			myState = WaterAIState.Attracted;
 		}
-		catch
+		else
 		{
-			//Debug.Log ("boop");
 			myState = WaterAIState.Avoiding;
 		}
 
@@ -52,7 +53,7 @@ public class WaterEnemyAI : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider col)
 	{
-		if(col.gameObject == RitualBoundaryZone)
+		if(col.gameObject == Boundary)
 		{
 			Debug.Log("One shot");
 			needDestination = true;
@@ -69,18 +70,30 @@ public class WaterEnemyAI : MonoBehaviour {
 			{
 				destination = new Vector2(transform.position.x + Random.Range((wanderDistance * -1),wanderDistance), transform.position.z + Random.Range((wanderDistance * -1),wanderDistance));
 				needDestination = false;
-				//transform.LookAt(destination);
+
+
+				Quaternion startRot = transform.rotation;
+
+
+				transform.LookAt(new Vector3(destination.x, transform.position.y, destination.y));
+				endRotationQuat = transform.rotation;
+				endRotationEuler = transform.rotation.eulerAngles;
+				transform.rotation = startRot;
 			}
-			transform.LookAt(new Vector3(destination.x, transform.position.y, destination.y));
-			float xPos = Mathf.MoveTowards(transform.position.x, destination.x, movementSpeed * Time.deltaTime);
-			float zPos = Mathf.MoveTowards(transform.position.z, destination.y, movementSpeed * Time.deltaTime);
-			transform.position = new Vector3(xPos, transform.position.y, zPos);
-			//Debug.Log ("Cube Position: " +transform.position.x + " " + transform.position.z);
-			Debug.Log ("Destination: " + destination.x + " " +destination.y);
-			if(!needDestination)
+
+			if((transform.rotation.eulerAngles.y < endRotationEuler.y + rotationCatch && transform.rotation.eulerAngles.y > endRotationEuler.y - rotationCatch))
 			{
-				if((transform.position.x < destination.x + 1 && transform.position.x > destination.x - 1) && (transform.position.z < destination.y + 1 && transform.position.z > destination.y - 1))
-					needDestination = true;
+				iTween.MoveUpdate(gameObject, new Vector3(destination.x, transform.position.y, destination.y), movementSpeed);
+				Debug.Log ("Destination: " + destination.x + " " +destination.y);
+				if(!needDestination)
+				{
+					if((transform.position.x < destination.x + 1 && transform.position.x > destination.x - 1) && (transform.position.z < destination.y + 1 && transform.position.z > destination.y - 1))
+						needDestination = true;
+				}
+			}
+			else
+			{
+				transform.rotation = Quaternion.Lerp(transform.rotation, endRotationQuat, rotationSpeed * Time.deltaTime);
 			}
 		}
 		else
@@ -93,36 +106,47 @@ public class WaterEnemyAI : MonoBehaviour {
 	{
 		if(needDestination)
 		{
-			if((transform.position.x - RitualBoundaryZone.transform.position.x) > 0)
+			if((transform.position.x - Boundary.transform.position.x) > 0)
 			{
 				destination.x = transform.position.x + wanderDistance;
 			}
-			if((transform.position.x - RitualBoundaryZone.transform.position.x) < 0)
+			if((transform.position.x - Boundary.transform.position.x) < 0)
 			{
 				destination.x = transform.position.x - wanderDistance;
 			}
-			if((transform.position.z - RitualBoundaryZone.transform.position.z) > 0)
+			if((transform.position.z - Boundary.transform.position.z) > 0)
 			{
 				destination.y = transform.position.z + wanderDistance;
 			}
-			if((transform.position.z - RitualBoundaryZone.transform.position.z) < 0)
+			if((transform.position.z - Boundary.transform.position.z) < 0)
 			{
 				destination.y = transform.position.z - wanderDistance;
 			}
+			Quaternion startRot = transform.rotation;
+			transform.LookAt(new Vector3(destination.x, transform.position.y, destination.y));
+			endRotationQuat = transform.rotation;
+			endRotationEuler = transform.rotation.eulerAngles;
+			transform.rotation = startRot;
 			needDestination = false;
 		}
 		if(!needDestination)
 		{
-			transform.LookAt(new Vector3(destination.x, transform.position.y, destination.y));
-
-			float xPos = Mathf.MoveTowards(transform.position.x, destination.x, movementSpeed * Time.deltaTime);
-			float zPos = Mathf.MoveTowards(transform.position.z, destination.y, movementSpeed * Time.deltaTime);
-			transform.position = new Vector3(xPos, transform.position.y, zPos);
-
-			if((transform.position.x < destination.x + 1 && transform.position.x > destination.x - 1) && (transform.position.z < destination.y + 1 && transform.position.z > destination.y - 1))
+			if((transform.rotation.eulerAngles.y < endRotationEuler.y + rotationCatch && transform.rotation.eulerAngles.y > endRotationEuler.y - rotationCatch))
 			{
-				needDestination = true;
-				inBoundaryZone = false;
+				//float xPos = Mathf.MoveTowards(transform.position.x, destination.x, movementSpeed * Time.deltaTime);
+				//float zPos = Mathf.MoveTowards(transform.position.z, destination.y, movementSpeed * Time.deltaTime);
+				//transform.position = new Vector3(xPos, transform.position.y, zPos);
+				iTween.MoveUpdate(gameObject, new Vector3(destination.x, transform.position.y, destination.y), movementSpeed);
+				
+				if((transform.position.x < destination.x + 1 && transform.position.x > destination.x - 1) && (transform.position.z < destination.y + 1 && transform.position.z > destination.y - 1))
+				{
+					needDestination = true;
+					inBoundaryZone = false;
+				}
+			}
+			else
+			{
+				transform.rotation = Quaternion.Lerp(transform.rotation, endRotationQuat, rotationSpeed * Time.deltaTime);
 			}
 		}
 
@@ -130,8 +154,9 @@ public class WaterEnemyAI : MonoBehaviour {
 
 	public void WalkToSalt()
 	{
-		transform.LookAt(salt.transform.position);
-		Mathf.MoveTowards(transform.position.x, salt.transform.position.x, movementSpeed * Time.deltaTime);
-		Mathf.MoveTowards(transform.position.y, salt.transform.position.y, movementSpeed * Time.deltaTime);
+		//transform.LookAt(salt.transform.position);
+		//Mathf.MoveTowards(transform.position.x, salt.transform.position.x, movementSpeed * Time.deltaTime);
+		//Mathf.MoveTowards(transform.position.y, salt.transform.position.y, movementSpeed * Time.deltaTime);
+		iTween.MoveUpdate(gameObject, salt.transform.position, movementSpeed);
 	}
 }
